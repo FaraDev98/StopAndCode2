@@ -1,0 +1,3 @@
+<h2 class="text">POST</h2>
+<app-menu (onFilterSelected)="getFilteredResults($event)"></app-menu>
+<app-post-detail *ngFor="let p of posts" [post]="p"></app-post-detail>

@@ -1,0 +1,17 @@
+<h2>PREFERITI</h2>
+<div class=""></div>
+<div *ngIf="favourites.length > 0">
+    <div class="list-group mb-2">
+        <div class="list-group-item mb-1" *ngFor="let f of favourites">
+            <div class="d-flex justify-content-between align-items-center">
+                <h6 class="m-0">{{f.title}}</h6>
+                <span type="button" class="btn-close" aria-label="Close" (click)="removeItem(f)"></span>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <small class="card-title">{{f.date | date}}</small>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-danger" (click)="removeAll()">Svuota</button>
+</div>

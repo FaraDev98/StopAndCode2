@@ -1,0 +1,14 @@
+<div class="card my-2" *ngIf="post">
+    <div class="card-header">
+        <h5 class="card-title">{{post.title}}</h5>
+        <span class="text-muted">{{post.category}}</span>
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{post.body}}</p>
+    </div>
+
+    <div class="card-footer d-flex justify-content-between align-items-center flex-wrap">
+        <em class="text-muted">Data di pubblicazione: {{post.date | date}}</em>
+        <button type="button" class="btn btn-primary" (click)="addToFavourites(post)">AGGIUNGI A PREFERITI</button>
+    </div>
+</div>
