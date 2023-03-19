@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Favourites } from '../post';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Favourites, Post } from '../post';
 import { PostsService } from '../posts.service';
 
 @Component({
@@ -28,6 +28,20 @@ export class PreferitiComponent implements OnInit {
   removeAll() {
     this.postService.cleanFavouritesList();
     this.favourites = this.postService.getFavouriteList();
+  }
+
+  postModal?: Post;
+  showPost: boolean = false;
+
+  selectPost(p: Favourites) {
+    this.postModal = this.postService.getPostModal(p);
+    if (this.postModal != undefined) {
+      this.showPost = true;
+    }
+  }
+
+  closeModal() {
+    this.showPost = false;
   }
 
 }

@@ -149,7 +149,6 @@ export class PostsService {
   /* ---  FUNZIONE PULISCI ARRAY PREFERITI --- */
   cleanFavouritesList() {
     this.favourites = [];
-    console.log(this.favourites)
   }// cleanFavouritesList
 
   /* ---  FUNZIONE FILTRAGGIO POST --- */
@@ -160,5 +159,9 @@ export class PostsService {
     })
 
   }// getFilteredResults
+
+  getPostModal(post: Favourites) {
+    return this.postList.find(p => p.title == post.title)
+  }
 
 }

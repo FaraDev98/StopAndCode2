@@ -10,8 +10,31 @@
             <hr>
             <div class="d-flex justify-content-between">
                 <small class="card-title">{{f.date | date}}</small>
+                <button type="button" class="btn btn-success" (click)="selectPost(f)">VEDI POST</button>
             </div>
         </div>
     </div>
     <button type="button" class="btn btn-danger" (click)="removeAll()">Svuota</button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal modal-xl fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    [ngClass]="{'d-block': showPost == true, 'show': showPost == true}" *ngIf="postModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">{{postModal.title}}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="closeModal()"></button>
+            </div>
+            <div class="modal-body">
+                <p>{{postModal.body}}</p>
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+                <em class="text-muted">Data di pubblicazione: {{postModal.date | date}}</em>
+                <button type="button" class="btn btn-secondary" (click)="closeModal()">CHIUDI</button>
+            </div>
+        </div>
+    </div>
 </div>
